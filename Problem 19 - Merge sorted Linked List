@@ -1,0 +1,22 @@
+public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode ans = new ListNode(0);
+        ListNode trv = ans;
+        while(list1 != null && list2 != null){
+            if (list1.val > list2.val){
+                trv.next = list2;
+                list2= list2.next;
+            } else {
+                trv.next = list1;
+                list1 = list1.next;
+            }
+            trv =trv.next;
+        }
+        if (list1 != null){
+            trv.next = list1;
+        }
+         if (list2 != null){
+            trv.next = list2;
+        }
+        ans = ans.next;
+        return ans;
+        }   
